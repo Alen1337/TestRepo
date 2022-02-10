@@ -3,11 +3,16 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 
+import static com.company.Debug.START_WINDOW_CREATION;
+import static com.company.Debug.SUCCESS_WINDOW_CREATION;
+
 public class Window {
     private final JFrame frame;
     private MainPanel mainPanel;
 
     public Window(String name, int x, int y, int width, int height) {
+        Debug.Log(START_WINDOW_CREATION);
+
         frame = new JFrame(name);
 
         frame.setResizable(false);
@@ -23,6 +28,8 @@ public class Window {
 
         frame.pack();
         frame.setVisible(true);
+
+        Debug.Log(SUCCESS_WINDOW_CREATION);
     }
 
 }
