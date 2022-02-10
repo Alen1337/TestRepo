@@ -6,6 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
         JFrame frame;
-        JFrame frame2;
+        JFrame frame23;
     }
 }
