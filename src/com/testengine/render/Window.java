@@ -1,10 +1,13 @@
-package com.company;
+package com.testengine.render;
+
+import com.testengine.game.scene.Scene;
+import com.testengine.utils.Debug;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static com.company.Debug.START_WINDOW_CREATION;
-import static com.company.Debug.SUCCESS_WINDOW_CREATION;
+import static com.testengine.utils.Debug.START_WINDOW_CREATION;
+import static com.testengine.utils.Debug.SUCCESS_WINDOW_CREATION;
 
 public class Window {
     private final JFrame frame;
@@ -30,6 +33,14 @@ public class Window {
         frame.setVisible(true);
 
         Debug.Log(SUCCESS_WINDOW_CREATION);
+    }
+
+    public void update() {
+        mainPanel.update();
+    }
+
+    public void setRenderScene(Scene scene) {
+        mainPanel.setRenderScene(scene);
     }
 
 }
