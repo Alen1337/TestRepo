@@ -1,7 +1,7 @@
 package com.testengine.game.core;
 
 import com.testengine.game.scene.GameScene;
-import com.testengine.game.scene.MenuScene;
+import com.testengine.game.scene.MainMenuScene;
 import com.testengine.game.scene.Scene;
 import com.testengine.utils.Debug;
 import com.testengine.utils.InputKey;
@@ -38,7 +38,7 @@ public class GameMain {
 
     private Scene getStartScene() {
         Debug.Log(START_MENUSCENE_CREATION);
-        return new MenuScene();
+        return new MainMenuScene();
     }
     public Scene getMainScene() { return this.mainScene; }
 
@@ -48,7 +48,7 @@ public class GameMain {
             mainScene = new GameScene();
             RenderHandler.loadScene(mainScene);
         } else if(inputKey == InputKey.D) {
-            mainScene = new MenuScene();
+            mainScene = new MainMenuScene();
             RenderHandler.loadScene(mainScene);
         }
     }

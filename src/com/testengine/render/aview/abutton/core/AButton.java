@@ -19,5 +19,25 @@ public abstract class AButton {
         return (clickedX >= this.x && clickedX <= this.x + this.width) && (clickedY >= this.y && clickedY <= this.y + this.height);
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public ABType getButtonType() {
+        return buttonType;
+    }
+
     public abstract void onClick();
 }

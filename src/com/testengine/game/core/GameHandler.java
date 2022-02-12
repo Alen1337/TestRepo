@@ -1,6 +1,9 @@
 package com.testengine.game.core;
 
+import com.testengine.Main;
 import com.testengine.game.core.GameMain;
+import com.testengine.game.scene.MainMenuScene;
+import com.testengine.game.scene.Scene;
 import com.testengine.game.scene.SceneType;
 import com.testengine.utils.Debug;
 import com.testengine.utils.InputKey;
@@ -27,5 +30,14 @@ public class GameHandler {
 
     public static void mouseClicked(MouseEvent e) {
         gameMain.onMouseClick(e.getX(), e.getY());
+    }
+
+    public static MainMenuScene getMainMenu() {
+        Scene scene = gameMain.getMainScene();
+        if(scene.getSceneType() == SceneType.MAINMENU) {
+            return (MainMenuScene) scene;
+        } else {
+            return null;
+        }
     }
 }

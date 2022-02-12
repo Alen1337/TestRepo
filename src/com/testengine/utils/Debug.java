@@ -18,6 +18,10 @@ public class Debug {
     public static String SUCCESS_GAMEHANDLER_CONNECTION = "[GAMEHANDLER] Game is successfully connected to GameHandler!";
     public static String SUCCESS_RENDERHANDLER_CONNECTION = "[RENDERHANDLER] Window is successfully connected to RenderHandler!";
     public static String SUCCESS_SCENE_CONNECTION_TO_RENDERER = "SCENE] Successfully loaded to the renderer!";
+    public static String SUCCESS_MAIN_MENU_NEW_GAME_BUTTON_CLICKED = "[MAINMENU] Start Game button clicked!";
+    public static String SUCCESS_MAIN_MENU_LOAD_GAME_BUTTON_CLICKED = "[MAINMENU] Load Game button clicked!";
+    public static String SUCCESS_MAIN_MENU_SETTINGS_BUTTON_CLICKED = "[MAINMENU] Settings button clicked!";
+    public static String SUCCESS_MAIN_MENU_EXIT_BUTTON_CLICKED = "[MAINMENU] Exit button clicked!";
     //ERROR_MESSAGES
     public static String ERROR_WINDOW_CREATION = "[ERROR][WINDOW] Some error ocoured while loading the window!";
 
