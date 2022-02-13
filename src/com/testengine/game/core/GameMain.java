@@ -19,14 +19,14 @@ public class GameMain {
 
     public GameMain() {
         mainScene = getStartScene();
-        RenderHandler.loadScene(mainScene);
+        RenderEventHandler.loadScene(mainScene);
         newFrameTimer = new Timer(0, new NewFrameListener());
         newFrameTimer.start();
     }
 
     private void update() {
         mainScene.update();
-        RenderHandler.update();
+        RenderEventHandler.update();
     }
 
     class NewFrameListener implements ActionListener {
@@ -46,10 +46,10 @@ public class GameMain {
         Debug.LogInput(inputKey + " is pressed!");
         if(inputKey == InputKey.SPACE) {
             mainScene = new GameScene();
-            RenderHandler.loadScene(mainScene);
+            RenderEventHandler.loadScene(mainScene);
         } else if(inputKey == InputKey.D) {
             mainScene = new MainMenuScene();
-            RenderHandler.loadScene(mainScene);
+            RenderEventHandler.loadScene(mainScene);
         }
     }
 

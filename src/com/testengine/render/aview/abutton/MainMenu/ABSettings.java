@@ -1,6 +1,6 @@
 package com.testengine.render.aview.abutton.MainMenu;
 
-import com.testengine.game.core.GameHandler;
+import com.testengine.game.core.GameEventHandler;
 import com.testengine.render.aview.abutton.core.ABType;
 import com.testengine.render.aview.abutton.core.AButton;
 
@@ -10,8 +10,8 @@ public class ABSettings extends AButton {
     }
     @Override
     public void onClick() {
-        if(GameHandler.getMainMenu() != null) {
-            GameHandler.getMainMenu().onSettings();
+        if(GameEventHandler.getMainMenu() != null) {
+            GameEventHandler.getMainMenu().onSettings();
         }
     }
 }

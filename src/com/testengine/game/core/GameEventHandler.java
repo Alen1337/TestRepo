@@ -1,10 +1,9 @@
 package com.testengine.game.core;
 
-import com.testengine.Main;
-import com.testengine.game.core.GameMain;
 import com.testengine.game.scene.MainMenuScene;
 import com.testengine.game.scene.Scene;
 import com.testengine.game.scene.SceneType;
+import com.testengine.render.ViewSceneHandler;
 import com.testengine.utils.Debug;
 import com.testengine.utils.InputKey;
 
@@ -12,7 +11,7 @@ import java.awt.event.MouseEvent;
 
 import static com.testengine.utils.Debug.SUCCESS_GAMEHANDLER_CONNECTION;
 
-public class GameHandler {
+public class GameEventHandler {
     private static GameMain gameMain;
 
     public static void setGame(GameMain game) {
@@ -25,7 +24,8 @@ public class GameHandler {
     }
 
     public static SceneType getMainSceneType() {
-        return gameMain.getMainScene().getSceneType();
+        if(gameMain != null) return gameMain.getMainScene().getSceneType();
+        return null;
     }
 
     public static void mouseClicked(MouseEvent e) {
@@ -39,5 +39,13 @@ public class GameHandler {
         } else {
             return null;
         }
+    }
+
+    public static Scene getMainScene() {
+        return gameMain.getMainScene();
+    }
+
+    public static GameMain getGameMain() {
+        return gameMain;
     }
 }

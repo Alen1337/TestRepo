@@ -5,8 +5,8 @@ import com.testengine.game.object.GameObject;
 import java.util.ArrayList;
 
 public abstract class Scene {
-    private final ArrayList<GameObject> gameObjects;
-    private SceneType sceneType;
+    protected final ArrayList<GameObject> gameObjects;
+    protected SceneType sceneType;
 
     public abstract void update();
 

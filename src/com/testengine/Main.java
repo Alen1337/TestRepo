@@ -1,8 +1,8 @@
 package com.testengine;
 
-import com.testengine.game.core.GameHandler;
+import com.testengine.game.core.GameEventHandler;
 import com.testengine.game.core.GameMain;
-import com.testengine.game.core.RenderHandler;
+import com.testengine.game.core.RenderEventHandler;
 import com.testengine.render.Window;
 import com.testengine.utils.Debug;
 
@@ -14,10 +14,10 @@ public class Main {
         Debug.Log(START_APPLICATION);
 
         Window window = new Window("Test Window",600,300,700,600);
-        RenderHandler.setWindow(window);
+        RenderEventHandler.setWindow(window);
 
         GameMain gameMain = new GameMain();
-        GameHandler.setGame(gameMain);
+        GameEventHandler.setGame(gameMain);
 
 
 
