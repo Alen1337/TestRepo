@@ -1,6 +1,6 @@
 package com.testengine.game.scene;
 
-import com.testengine.game.object.GameObject;
+import com.testengine.game.object.core.GameObject;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public abstract class Scene {
     protected final ArrayList<GameObject> gameObjects;
     protected SceneType sceneType;
 
-    public abstract void update();
+    public abstract void update(float dt);
 
     protected Scene(SceneType sceneType) {
         gameObjects = new ArrayList();

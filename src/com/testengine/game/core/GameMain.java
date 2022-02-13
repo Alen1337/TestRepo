@@ -16,6 +16,7 @@ import static com.testengine.utils.Debug.START_MENUSCENE_CREATION;
 public class GameMain {
     private Timer newFrameTimer;
     private Scene mainScene;
+    long last_time = System.nanoTime();
 
     public GameMain() {
         mainScene = getStartScene();
@@ -25,7 +26,11 @@ public class GameMain {
     }
 
     private void update() {
-        mainScene.update();
+        long time = System.nanoTime();
+        int dt = (int) ((time - last_time) / 1000000);
+        last_time = time;
+
+        mainScene.update(dt);
         RenderEventHandler.update();
     }
 
@@ -45,8 +50,7 @@ public class GameMain {
     public void onKeyPress(InputKey inputKey) {
         Debug.LogInput(inputKey + " is pressed!");
         if(inputKey == InputKey.SPACE) {
-            mainScene = new GameScene();
-            RenderEventHandler.loadScene(mainScene);
+
         } else if(inputKey == InputKey.D) {
             mainScene = new MainMenuScene();
             RenderEventHandler.loadScene(mainScene);
@@ -55,5 +59,9 @@ public class GameMain {
 
     public void onMouseClick(int x, int y) {
         Debug.LogInput("Mouse clicked at x:" + x + " y: " + y);
+    }
+
+    public void setMainScene(Scene mainScene) {
+        this.mainScene = mainScene;
     }
 }

@@ -1,7 +1,7 @@
 package com.testengine.game.scene;
 
-import com.testengine.game.object.tower.SingleShotTower;
-import com.testengine.game.object.tower.TowerType;
+import com.testengine.game.object.core.GameObject;
+import com.testengine.game.object.tower.species.SingleShotTower;
 import com.testengine.game.object.unit.Unit;
 import com.testengine.game.object.unit.UnitStat;
 import com.testengine.game.object.unit.UnitType;
@@ -24,7 +24,7 @@ public class GameScene extends Scene {
                 );
 
         SingleShotTower tower = new SingleShotTower(
-                new Transform(new Position(200,200,50,50), new Velocity(0,0,0,0)),
+                new Transform(new Position(200,200,100,100), new Velocity(0,0,0,0)),
                 200, 1500
         );
 
@@ -35,7 +35,11 @@ public class GameScene extends Scene {
     }
 
     @Override
-    public void update() {
+    public void update(float dt) {
+        for(int i = 0;i< gameObjects.size();i++) {
+            GameObject object = gameObjects.get(i);
+            object.updateMovement(dt);
 
+        }
     }
 }

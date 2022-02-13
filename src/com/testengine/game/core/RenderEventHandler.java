@@ -2,7 +2,7 @@ package com.testengine.game.core;
 
 import com.testengine.game.scene.Scene;
 import com.testengine.game.scene.SceneType;
-import com.testengine.render.Window;
+import com.testengine.render.core.Window;
 import com.testengine.render.aview.amenu.AMMainMenu;
 import com.testengine.utils.Debug;
 

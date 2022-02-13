@@ -1,9 +1,9 @@
 package com.testengine.game.core;
 
+import com.testengine.game.object.shot.Shot;
 import com.testengine.game.scene.MainMenuScene;
 import com.testengine.game.scene.Scene;
 import com.testengine.game.scene.SceneType;
-import com.testengine.render.ViewSceneHandler;
 import com.testengine.utils.Debug;
 import com.testengine.utils.InputKey;
 
@@ -47,5 +47,9 @@ public class GameEventHandler {
 
     public static GameMain getGameMain() {
         return gameMain;
+    }
+
+    public static void createShot(Shot shot){
+        GameEventHandler.getMainScene().getGameObjects().add(shot);
     }
 }

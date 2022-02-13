@@ -22,6 +22,9 @@ public class Debug {
     public static String SUCCESS_MAIN_MENU_LOAD_GAME_BUTTON_CLICKED = "[MAINMENU] Load Game button clicked!";
     public static String SUCCESS_MAIN_MENU_SETTINGS_BUTTON_CLICKED = "[MAINMENU] Settings button clicked!";
     public static String SUCCESS_MAIN_MENU_EXIT_BUTTON_CLICKED = "[MAINMENU] Exit button clicked!";
+    public static String SUCCESS_GAMEOBJECT_TOWER_CREATION = "_TOWER] Successfully created!";
+    public static String SUCCESS_GAMEOBJECT_UNIT_CREATION = "_UNIT] Successfully created!";
+    public static String SUCCESS_GAMEOBJECT_SHOT_CREATION = "_SHOT] Successfully created!";
     //ERROR_MESSAGES
     public static String ERROR_WINDOW_CREATION = "[ERROR][WINDOW] Some error ocoured while loading the window!";
 

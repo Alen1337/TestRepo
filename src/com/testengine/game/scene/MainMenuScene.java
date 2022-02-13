@@ -1,6 +1,8 @@
 package com.testengine.game.scene;
 
 
+import com.testengine.game.core.GameEventHandler;
+import com.testengine.game.core.RenderEventHandler;
 import com.testengine.utils.Debug;
 
 import static com.testengine.utils.Debug.*;
@@ -13,12 +15,15 @@ public class MainMenuScene extends Scene {
     }
 
     @Override
-    public void update() {
+    public void update(float dt) {
 
     }
 
     public void onNewGame() {
         Debug.LogInput(SUCCESS_MAIN_MENU_NEW_GAME_BUTTON_CLICKED);
+        GameEventHandler.getGameMain().setMainScene(new GameScene());
+        RenderEventHandler.loadScene(GameEventHandler.getGameMain().getMainScene());
+
     }
 
     public void onLoadGame() {

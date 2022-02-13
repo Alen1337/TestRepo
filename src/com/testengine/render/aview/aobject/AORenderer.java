@@ -2,14 +2,14 @@ package com.testengine.render.aview.aobject;
 
 import com.testengine.game.core.GameEventHandler;
 import com.testengine.game.core.SpriteHandler;
-import com.testengine.game.object.GameObject;
-import com.testengine.game.object.ObjectType;
-import com.testengine.game.object.tower.Tower;
+import com.testengine.game.object.core.GameObject;
+import com.testengine.game.object.core.ObjectType;
+import com.testengine.game.object.tower.core.Tower;
 import com.testengine.game.object.unit.Unit;
 import com.testengine.game.scene.GameScene;
 import com.testengine.game.scene.MainMenuScene;
 import com.testengine.game.scene.SceneType;
-import com.testengine.render.ViewSceneHandler;
+import com.testengine.render.core.ViewSceneHandler;
 
 import javax.swing.*;
 import java.awt.*;

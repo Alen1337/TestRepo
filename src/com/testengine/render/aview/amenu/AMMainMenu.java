@@ -8,7 +8,7 @@ import com.testengine.render.aview.abutton.MainMenu.ABSettings;
 
 import java.awt.event.MouseEvent;
 
-import static com.testengine.render.ViewSceneHandler.MainMenuSceneView;
+import static com.testengine.render.core.ViewSceneHandler.MainMenuSceneView;
 
 public class AMMainMenu extends AMenu {
     private ABNewGame newGameButton;

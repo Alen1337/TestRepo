@@ -3,7 +3,7 @@ package com.testengine;
 import com.testengine.game.core.GameEventHandler;
 import com.testengine.game.core.GameMain;
 import com.testengine.game.core.RenderEventHandler;
-import com.testengine.render.Window;
+import com.testengine.render.core.Window;
 import com.testengine.utils.Debug;
 
 import static com.testengine.utils.Debug.*;
