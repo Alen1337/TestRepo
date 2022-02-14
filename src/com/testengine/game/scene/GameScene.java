@@ -1,6 +1,8 @@
 package com.testengine.game.scene;
 
+import com.testengine.game.core.ObjectHandler;
 import com.testengine.game.object.core.GameObject;
+import com.testengine.game.object.core.PlayerBasement;
 import com.testengine.game.object.tower.species.SingleShotTower;
 import com.testengine.game.object.unit.Unit;
 import com.testengine.game.object.unit.UnitStat;
@@ -17,17 +19,23 @@ public class GameScene extends Scene {
 
     public GameScene() {
         super(SceneType.GAME);
+
+        PlayerBasement base = new PlayerBasement(
+                new Transform(new Position(50,50,50,50),new Velocity(0,0,0,0)),10);
+
         Unit unit = new Unit(
-                new Transform(new Position(50,50,50,50),new Velocity(0,0,0,0)),
-                new UnitStat(10000,5000,5000),
+                new Transform(new Position(50,100,50,50),new Velocity(0,0,0,0)),
+                new UnitStat(300,100,100),
+                100,
                 UnitType.SMALL
                 );
 
         SingleShotTower tower = new SingleShotTower(
                 new Transform(new Position(200,200,100,100), new Velocity(0,0,0,0)),
-                200, 1500
+                500, 1000
         );
 
+        //gameObjects.add(base);
         gameObjects.add(unit);
         gameObjects.add(tower);
 
@@ -36,10 +44,6 @@ public class GameScene extends Scene {
 
     @Override
     public void update(float dt) {
-        for(int i = 0;i< gameObjects.size();i++) {
-            GameObject object = gameObjects.get(i);
-            object.updateMovement(dt);
-
-        }
+        ObjectHandler.update(gameObjects, dt);
     }
 }

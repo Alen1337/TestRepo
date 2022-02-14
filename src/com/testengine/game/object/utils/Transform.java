@@ -31,4 +31,10 @@ public class Transform {
     public void setVelocity(Velocity velocity) {
         this.velocity = velocity;
     }
+
+    public float getDistanceFrom(Transform other) {
+        return (float)Math.sqrt(
+                ((other.getPosition().getX() - this.getPosition().getX()) * (other.getPosition().getX() - this.getPosition().getX())) +
+                        ((other.getPosition().getY() - this.getPosition().getY())*(other.getPosition().getY() - this.getPosition().getY())));
+    }
 }

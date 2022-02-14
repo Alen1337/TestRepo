@@ -44,4 +44,21 @@ public class Window {
         mainPanel.setRenderScene(scene);
     }
 
+    public int getWidth() {
+        return frame.getWidth();
+    }
+
+    public int getHeight() {
+        return frame.getHeight();
+    }
+
+    public int getX() {
+        return frame.getX();
+
+    }
+
+    public int getY() {
+        return frame.getY();
+    }
+
 }

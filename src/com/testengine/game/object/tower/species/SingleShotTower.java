@@ -14,7 +14,7 @@ public class SingleShotTower extends AttackTower {
         super(transform,
                 range,
                 attackSpeed,
-                new AttackTowerStat(10,10,10,10,10),
+                new AttackTowerStat(24,10,10,10,10),
                 TowerType.SINGLE_SHOT);
         Debug.Log("["+ this.getTowerType() + Debug.SUCCESS_GAMEOBJECT_TOWER_CREATION);
     }

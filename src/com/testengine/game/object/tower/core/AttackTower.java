@@ -21,14 +21,27 @@ public abstract class AttackTower extends Tower {
         this.searchingForTarget = true;
     }
 
+    public void clearTargetUnit() {
+        searchingForTarget = true;
+        stopShot();
+        targetUnit = null;
+    }
+
     public void setTargetUnit(Unit target) {
+        searchingForTarget = false;
         targetUnit = target;
+        setShotTimerPeriod();
     }
 
     protected abstract void onShot();
 
     public void refreshShotTimerPeriod() {
-        shotTimer.cancel();
+        stopShot();
+        setShotTimerPeriod();
+
+    }
+
+    public void setShotTimerPeriod() {
         shotTimer.schedule(
                 new TimerTask() {
                     @Override

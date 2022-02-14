@@ -4,5 +4,6 @@ public enum ObjectType {
     TOWER,
     UNIT,
     PLAYER_BASE,
-    SHOT
+    SHOT,
+    PLAYER
 }

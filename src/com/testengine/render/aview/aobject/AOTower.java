@@ -7,6 +7,8 @@ import com.testengine.game.object.utils.Transform;
 
 import java.awt.*;
 
+import static com.testengine.render.aview.aobject.AORenderer.camera;
+
 public class AOTower {
 
     public static void render(Graphics g, Tower tower) {
@@ -23,9 +25,9 @@ public class AOTower {
 
     private static void renderSingleShot(Graphics g, SingleShotTower tower) {
         Transform t = tower.getTransform();
-
+        Transform c = camera.getTransform();
         g.setColor(Color.RED);
-        g.fillRect((int)t.getPosition().getX(), (int)t.getPosition().getY(),
+        g.fillRect((int)t.getPosition().getX() + (int)c.getPosition().getX(), (int)t.getPosition().getY() + (int)c.getPosition().getY(),
                 (int)t.getPosition().getWidth(),(int)t.getPosition().getHeight());
 
         renderTowerName(g, tower);
@@ -39,12 +41,13 @@ public class AOTower {
 
     private static void renderTowerName(Graphics g, Tower tower) {
         Transform t = tower.getTransform();
+        Transform c = camera.getTransform();
         Font font = new Font("Courier", Font.PLAIN, 20);
         FontMetrics metrics = g.getFontMetrics(font);
         String text = getTowerName(tower) + " [Lvl: " + (int)((SingleShotTower)tower).getAttackTowerStat().getLevel() + "]";
         int x = (int)t.getPosition().getX() + (((int)t.getPosition().getWidth() / 2)) - metrics.stringWidth(text) / 2;
-        int y = (int)t.getPosition().getY() - 20;
+        int y = (int)t.getPosition().getY() - 5;
         g.setFont(font);
-        g.drawString(text, x, y);
+        g.drawString(text, x + (int)c.getPosition().getX(), y + (int)c.getPosition().getY());
     }
 }

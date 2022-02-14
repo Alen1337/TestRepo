@@ -6,6 +6,9 @@ import com.testengine.game.core.RenderEventHandler;
 import com.testengine.render.core.Window;
 import com.testengine.utils.Debug;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import static com.testengine.utils.Debug.*;
 
 public class Main {

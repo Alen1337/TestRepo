@@ -4,11 +4,16 @@ import com.testengine.game.core.GameEventHandler;
 import com.testengine.game.core.SpriteHandler;
 import com.testengine.game.object.core.GameObject;
 import com.testengine.game.object.core.ObjectType;
+import com.testengine.game.object.shot.Shot;
 import com.testengine.game.object.tower.core.Tower;
 import com.testengine.game.object.unit.Unit;
+import com.testengine.game.object.utils.Position;
+import com.testengine.game.object.utils.Transform;
+import com.testengine.game.object.utils.Velocity;
 import com.testengine.game.scene.GameScene;
 import com.testengine.game.scene.MainMenuScene;
 import com.testengine.game.scene.SceneType;
+import com.testengine.render.aview.ACamera;
 import com.testengine.render.core.ViewSceneHandler;
 
 import javax.swing.*;
@@ -16,6 +21,7 @@ import java.awt.*;
 
 public class AORenderer {
     private static JPanel renderPanel;
+    public static ACamera camera = new ACamera(new Transform(new Position(0,0, 500,500), new Velocity()));
     public static void renderView(Graphics g) {
         if(GameEventHandler.getGameMain() != null) {
             if (GameEventHandler.getMainSceneType() == SceneType.MAINMENU) {
@@ -59,6 +65,7 @@ public class AORenderer {
     private static void renderObject(Graphics g, GameObject object) {
         if(object.getObjectType() == ObjectType.UNIT) AOUnit.render(g,(Unit)object);
         else if(object.getObjectType() == ObjectType.TOWER) AOTower.render(g,(Tower)object);
+        else if(object.getObjectType() == ObjectType.SHOT) AOShot.render(g,(Shot)object);
         return;
     }
 

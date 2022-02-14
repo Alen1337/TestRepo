@@ -25,14 +25,19 @@ public class Debug {
     public static String SUCCESS_GAMEOBJECT_TOWER_CREATION = "_TOWER] Successfully created!";
     public static String SUCCESS_GAMEOBJECT_UNIT_CREATION = "_UNIT] Successfully created!";
     public static String SUCCESS_GAMEOBJECT_SHOT_CREATION = "_SHOT] Successfully created!";
+    public static String SUCCESS_GAMEOBJECT_DESTROY = "_OBJECT] Successfully destroyed!";
     //ERROR_MESSAGES
     public static String ERROR_WINDOW_CREATION = "[ERROR][WINDOW] Some error ocoured while loading the window!";
+    public static String ERROR_CALC_SHOT_VELOCITY = "[ERROR] Some error ocoured while calculating the shot's velocity!";
 
 
 
     //Settings
     public static Boolean BasicMode = true;
     public static Boolean InputMode = true;
+    public static Boolean CombatMode = true;
+    public static Boolean GameObjectMode = true;
+
     static SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss.SSS");
 
     public static void Log(String message) {
@@ -43,6 +48,17 @@ public class Debug {
     public static void LogInput(String message) {
         if(InputMode) {
             System.out.println(getTime() +  " [INPUT] - " + message);
+        }
+    }
+    public static void LogCombat(String message) {
+        if(CombatMode) {
+            System.out.println(getTime() +  " [COMBAT] - " + message);
+        }
+    }
+
+    public static void LogObject(String message) {
+        if(GameObjectMode) {
+            System.out.println(getTime() +  " [GAMEOBJECT] - " + message);
         }
     }
 

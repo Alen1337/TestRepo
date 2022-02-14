@@ -4,6 +4,7 @@ import com.testengine.game.core.GameEventHandler;
 import com.testengine.game.core.RenderEventHandler;
 import com.testengine.game.scene.Scene;
 import com.testengine.game.scene.SceneType;
+import com.testengine.render.aview.agui.AGFps;
 import com.testengine.render.aview.amenu.AMMainMenu;
 import com.testengine.render.aview.aobject.AORenderer;
 import com.testengine.utils.Debug;
@@ -38,12 +39,12 @@ public class MainPanel extends JPanel {
 
         @Override
         public void mousePressed(MouseEvent e) {
-
+            RenderEventHandler.handleMousePress(e);
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-
+            RenderEventHandler.handleMouseRelease(e);
         }
 
         @Override
@@ -55,6 +56,8 @@ public class MainPanel extends JPanel {
         public void mouseExited(MouseEvent e) {
 
         }
+
+
     }
 
     private void initKeyActions() {
@@ -112,6 +115,7 @@ public class MainPanel extends JPanel {
     protected void paintComponent(Graphics grphcs) {
         super.paintComponent(grphcs);
         AORenderer.renderView(grphcs);
+        AGFps.render(grphcs);
     }
 
     public void setRenderScene(Scene scene) {
