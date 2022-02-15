@@ -15,7 +15,7 @@ public class Unit extends GameObject {
         this.unitStat = unitStat;
         this.goldOnKill = goldOnKill;
         this.unitType = unitType;
-        Debug.LogObject("["+ this.getUnitType() + Debug.SUCCESS_GAMEOBJECT_UNIT_CREATION);
+        Debug.LogCreateObject("["+ this.getUnitType() + Debug.SUCCESS_GAMEOBJECT_UNIT_CREATION);
     }
 
     public void update(float dt) {
@@ -38,4 +38,8 @@ public class Unit extends GameObject {
         return this.goldOnKill;
     }
 
+    @Override
+    public void onDestroy() {
+
+    }
 }

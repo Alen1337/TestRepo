@@ -1,6 +1,7 @@
 package com.testengine.render.aview.abutton.MainMenu;
 
 import com.testengine.game.core.GameEventHandler;
+import com.testengine.game.scene.SceneHandler;
 import com.testengine.render.aview.abutton.core.ABType;
 import com.testengine.render.aview.abutton.core.AButton;
 
@@ -10,8 +11,6 @@ public class ABExit extends AButton {
     }
     @Override
     public void onClick() {
-        if(GameEventHandler.getMainMenu() != null) {
-            GameEventHandler.getMainMenu().onExit();
-        }
+            SceneHandler.getMainMenuScene().onExit();
     }
 }

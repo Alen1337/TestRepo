@@ -78,4 +78,9 @@ public abstract class AttackTower extends Tower {
     public AttackTowerStat getAttackTowerStat() {
         return attackTowerStat;
     }
+
+    @Override
+    public void onDestroy() {
+        stopShot();
+    }
 }

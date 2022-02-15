@@ -3,6 +3,7 @@ package com.testengine.game.core;
 import com.testengine.game.object.shot.Shot;
 import com.testengine.game.scene.MainMenuScene;
 import com.testengine.game.scene.Scene;
+import com.testengine.game.scene.SceneHandler;
 import com.testengine.game.scene.SceneType;
 import com.testengine.utils.Debug;
 import com.testengine.utils.InputKey;
@@ -28,15 +29,6 @@ public class GameEventHandler {
         gameMain.onMouseClick(e.getX(), e.getY());
     }
 
-    public static MainMenuScene getMainMenu() {
-        Scene scene = gameMain.getMainScene();
-        if(scene.getSceneType() == SceneType.MAINMENU) {
-            return (MainMenuScene) scene;
-        } else {
-            return null;
-        }
-    }
-
     public static Scene getMainScene() {
         return gameMain.getMainScene();
     }
@@ -50,6 +42,7 @@ public class GameEventHandler {
     }
 
     public static void backToMenu() {
-        gameMain.backToMenu();
+        SceneHandler.loadMainMenuScene();
     }
+
 }

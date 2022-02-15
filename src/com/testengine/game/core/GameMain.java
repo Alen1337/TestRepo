@@ -2,6 +2,7 @@ package com.testengine.game.core;
 
 import com.testengine.game.scene.MainMenuScene;
 import com.testengine.game.scene.Scene;
+import com.testengine.game.scene.SceneHandler;
 import com.testengine.game.scene.SceneType;
 import com.testengine.render.aview.acamera.ACHandler;
 import com.testengine.render.aview.aobject.AOHandler;
@@ -25,7 +26,7 @@ public class GameMain {
     long last_time = System.nanoTime();
 
     public GameMain() {
-        mainScene = getStartScene();
+        mainScene = SceneHandler.getStartScene();
         RenderEventHandler.loadScene(mainScene);
         newFrameTimer = new Timer(0, new NewFrameListener());
         newFrameTimer.start();
@@ -52,7 +53,6 @@ public class GameMain {
             outFPS = fps;
         }
     }
-
     class NewFrameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -60,20 +60,11 @@ public class GameMain {
         }
     }
 
-    private Scene getStartScene() {
-        Debug.Log(START_MENUSCENE_CREATION);
-        return new MainMenuScene();
-    }
+
     public Scene getMainScene() { return this.mainScene; }
 
 
-    public void backToMenu() {
-        mainScene = new MainMenuScene();
-        RenderEventHandler.loadScene(mainScene);
-    }
 
-    private static float lastPosX = 0;
-    private static float lastPosY = 0;
 
 
     public void onMouseClick(int x, int y) {

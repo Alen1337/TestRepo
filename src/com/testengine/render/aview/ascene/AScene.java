@@ -19,4 +19,5 @@ public abstract class AScene {
     public abstract void handleMouseRelease(MouseEvent e);
     public abstract void handleMouseClick(MouseEvent e);
     public abstract void onKeyPress(InputKey inputKey);
+    public abstract void onDestroy();
 }

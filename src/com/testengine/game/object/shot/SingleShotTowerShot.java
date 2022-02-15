@@ -14,6 +14,6 @@ public class SingleShotTowerShot extends Shot {
     }
     public SingleShotTowerShot(Tower towerFrom, Unit target, Damage damage) {
         super(SingleShotTowerShot.SPEED, SingleShotTowerShot.WIDTH, SingleShotTowerShot.HEIGHT, towerFrom, target, damage, DamageType.SINGLE_TARGET);
-        Debug.LogObject("["+ this.towerFrom.getTowerType() + Debug.SUCCESS_GAMEOBJECT_SHOT_CREATION);
+        Debug.LogCreateObject("["+ this.towerFrom.getTowerType() + Debug.SUCCESS_GAMEOBJECT_SHOT_CREATION);
     }
 }

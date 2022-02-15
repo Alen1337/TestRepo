@@ -19,7 +19,7 @@ public abstract class Scene {
         return sceneType;
     }
 
-
+    public abstract void onDestroy();
     public ArrayList<GameObject> getGameObjects() {
         return this.gameObjects;
     }

@@ -35,6 +35,35 @@ public class ASGameScene extends AScene {
     @Override
     public void onKeyPress(InputKey inputKey) {
         Debug.LogInput(inputKey + " is pressed!");
+        if(inputKey == InputKey.ESCAPE) {
+
+        }
+    }
+
+    private void onKeyEscape() {
         GameEventHandler.backToMenu();
+    }
+
+    private void onKeySpace() {
+
+    }
+
+    private void onKeyW() {
+
+    }
+    private void onKeyA() {
+
+    }
+    private void onKeyS() {
+
+    }
+    private void onKeyD() {
+
+    }
+
+
+    @Override
+    public void onDestroy() {
+
     }
 }

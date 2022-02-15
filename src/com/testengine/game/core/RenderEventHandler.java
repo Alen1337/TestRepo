@@ -24,16 +24,9 @@ public class RenderEventHandler {
         window.update();
     }
 
-    public static Boolean isWindowCreated() {
-        return window != null;
-    }
-
     public static void loadScene(Scene scene) {
         ViewSceneHandler.loadScene(scene.getSceneType());
     }
-
-
-
 
 
     public static int getWindowWidth() {

@@ -19,4 +19,9 @@ public class Player extends GameObject {
         steel = 0;
         explosive = 0;
     }
+
+    @Override
+    public void onDestroy() {
+
+    }
 }

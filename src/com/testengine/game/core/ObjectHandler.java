@@ -65,7 +65,8 @@ public class ObjectHandler {
                         removeUnit(shot.getTarget(), gameObjects);
                     }
                     gameObjects.remove(shot);
-                    Debug.LogObject("[" + shot.getTowerFrom().getTowerType() + "_SHOT_OBJECT] Hitted " + shot.getTarget().getUnitType() + "_UNIT! Shot removed!");
+                    Debug.LogCombat("[" + shot.getTowerFrom().getTowerType() + "_SHOT_OBJECT] Hitted " + shot.getTarget().getUnitType() + "_UNIT!");
+                    Debug.LogRemoveObject(shot.getObjectType() + "Successfully removed!");
                     Debug.LogCombat(shot.getTarget().getUnitType() + "_UNIT stats after the shot: " + shot.getTarget().getUnitStat().getHealth() + " " + shot.getTarget().getUnitStat().getArmor() + " " + shot.getTarget().getUnitStat().getShield());
                 }
             }
@@ -85,7 +86,8 @@ public class ObjectHandler {
                 }
             }
         }
-        Debug.Log("[" + unit.getUnitType() + "_UNIT" + Debug.SUCCESS_GAMEOBJECT_DESTROY);
+        unit.onDestroy();
+        Debug.LogRemoveObject("[" + unit.getUnitType() + "_UNIT" + Debug.SUCCESS_GAMEOBJECT_DESTROY);
         gameObjects.remove((Object)unit);
     }
 }

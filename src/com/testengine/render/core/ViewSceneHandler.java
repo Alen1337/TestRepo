@@ -7,6 +7,7 @@ import com.testengine.render.aview.ascene.ASMainMenuScene;
 import com.testengine.render.aview.ascene.AScene;
 import com.testengine.render.aview.acamera.ACamera;
 import com.testengine.utils.Debug;
+import com.testengine.utils.InputKey;
 
 import java.awt.event.MouseEvent;
 
@@ -34,6 +35,8 @@ public class ViewSceneHandler {
         renderScene.handleMouseRelease(e);
     }
 
+    public static void handleKeyPress(InputKey inputKey) { renderScene.onKeyPress(inputKey); }
+
     public static AScene getRenderScene() {
         return renderScene;
     }
@@ -52,4 +55,6 @@ public class ViewSceneHandler {
         }
         Debug.Log("[" + sceneTypeToLoad + SUCCESS_SCENE_CONNECTION_TO_RENDERER);
     }
+
+    public static void unloadScene() { renderScene.onDestroy(); }
 }

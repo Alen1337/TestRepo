@@ -62,4 +62,9 @@ public abstract class Shot extends GameObject {
     public Unit getTarget() {
         return target;
     }
+
+    @Override
+    public void onDestroy() {
+
+    }
 }

@@ -42,15 +42,28 @@ public class UnitStat {
     }
 
     public void setHealth(float health) {
-        this.health = health;
+        if(health < 0) {
+            this.health = 0;
+        } else {
+            this.health = health;
+        }
     }
 
     public void setArmor(float armor) {
-        this.armor = armor;
+        if(armor < 0) {
+            this.armor = 0;
+        } else {
+            this.armor = armor;
+        }
+
     }
 
     public void setShield(float shield) {
-        this.shield = shield;
+        if(shield < 0) {
+            this.shield = 0;
+        } else {
+            this.shield = shield;
+        }
     }
 
     public float getMaxHealth() {

@@ -37,6 +37,8 @@ public class Debug {
     public static Boolean InputMode = true;
     public static Boolean CombatMode = true;
     public static Boolean GameObjectMode = true;
+    public static Boolean GameObjectRemoveMode = true;
+    public static Boolean GameObjectCreateMode = true;
 
     static SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss.SSS");
 
@@ -61,6 +63,19 @@ public class Debug {
             System.out.println(getTime() +  " [GAMEOBJECT] - " + message);
         }
     }
+
+    public static void LogCreateObject(String message) {
+        if(GameObjectCreateMode) {
+            System.out.println(getTime() +  " [GAMEOBJECT_CREATE] - " + message);
+        }
+    }
+
+    public static void LogRemoveObject(String message) {
+        if(GameObjectRemoveMode) {
+            System.out.println(getTime() +  " [GAMEOBJECT_REMOVE] - " + message);
+        }
+    }
+
 
     private static String getTime() {
         Date date = new Date();

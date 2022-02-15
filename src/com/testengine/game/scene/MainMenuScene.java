@@ -21,9 +21,8 @@ public class MainMenuScene extends Scene {
 
     public void onNewGame() {
         Debug.LogInput(SUCCESS_MAIN_MENU_NEW_GAME_BUTTON_CLICKED);
-        GameEventHandler.getGameMain().setMainScene(new GameScene());
-        RenderEventHandler.loadScene(GameEventHandler.getGameMain().getMainScene());
 
+        SceneHandler.loadScene(new GameScene());
     }
 
     public void onLoadGame() {
@@ -36,5 +35,10 @@ public class MainMenuScene extends Scene {
 
     public void onExit() {
         Debug.LogInput(SUCCESS_MAIN_MENU_EXIT_BUTTON_CLICKED);
+    }
+
+    @Override
+    public void onDestroy() {
+
     }
 }

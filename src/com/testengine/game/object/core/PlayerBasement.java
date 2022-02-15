@@ -27,4 +27,9 @@ public class PlayerBasement extends GameObject {
     public void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
     }
+
+    @Override
+    public void onDestroy() {
+
+    }
 }

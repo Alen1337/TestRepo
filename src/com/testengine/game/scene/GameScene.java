@@ -46,4 +46,11 @@ public class GameScene extends Scene {
     public void update(float dt) {
         ObjectHandler.update(gameObjects, dt);
     }
+
+    @Override
+    public void onDestroy() {
+        for(int i = 0;i<gameObjects.size();i++) {
+            gameObjects.get(i).onDestroy();
+        }
+    }
 }

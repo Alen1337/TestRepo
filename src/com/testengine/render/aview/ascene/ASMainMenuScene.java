@@ -41,4 +41,9 @@ public class ASMainMenuScene extends AScene {
     public AMMainMenu getMainMenu() {
         return mainMenu;
     }
+
+    @Override
+    public void onDestroy() {
+
+    }
 }
