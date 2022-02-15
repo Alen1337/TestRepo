@@ -19,10 +19,6 @@ public class GameEventHandler {
         Debug.Log(SUCCESS_GAMEHANDLER_CONNECTION);
     }
 
-    public static void keyPressed(InputKey inputKey) {
-        gameMain.onKeyPress(inputKey);
-    }
-
     public static SceneType getMainSceneType() {
         if(gameMain != null) return gameMain.getMainScene().getSceneType();
         return null;
@@ -51,5 +47,9 @@ public class GameEventHandler {
 
     public static void createShot(Shot shot){
         GameEventHandler.getMainScene().getGameObjects().add(shot);
+    }
+
+    public static void backToMenu() {
+        gameMain.backToMenu();
     }
 }

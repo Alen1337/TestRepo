@@ -2,8 +2,9 @@ package com.testengine.game.core;
 
 import com.testengine.game.scene.Scene;
 import com.testengine.game.scene.SceneType;
-import com.testengine.render.aview.ACamera;
-import com.testengine.render.aview.aobject.AORenderer;
+import com.testengine.render.aview.acamera.ACGame;
+import com.testengine.render.aview.acamera.ACHandler;
+import com.testengine.render.core.ViewSceneHandler;
 import com.testengine.render.core.Window;
 import com.testengine.render.aview.amenu.AMMainMenu;
 import com.testengine.utils.Debug;
@@ -19,6 +20,7 @@ public class RenderEventHandler {
         Debug.Log(SUCCESS_RENDERHANDLER_CONNECTION);
     }
     public static void update() {
+        ACHandler.handleCamera();
         window.update();
     }
 
@@ -27,26 +29,10 @@ public class RenderEventHandler {
     }
 
     public static void loadScene(Scene scene) {
-        window.setRenderScene(scene);
+        ViewSceneHandler.loadScene(scene.getSceneType());
     }
 
-    public static void handleMouseClick(MouseEvent e) {
-        if(GameEventHandler.getMainSceneType() == SceneType.MAINMENU) {
-            AMMainMenu.handleClick(e);
-        }
-    }
 
-    public static void handleMousePress(MouseEvent e) {
-        if(GameEventHandler.getMainSceneType() == SceneType.GAME) {
-            ACamera.handleButtonPress(e);
-        }
-    }
-
-    public static void handleMouseRelease(MouseEvent e) {
-        if(GameEventHandler.getMainSceneType() == SceneType.GAME) {
-            ACamera.handleButtonRelease(e);
-        }
-    }
 
 
 

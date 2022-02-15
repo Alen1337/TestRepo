@@ -14,7 +14,7 @@ public abstract class GameObject {
     public void updateMovement(float dt) {
         transform.update(dt);
     }
-
+    public abstract void onDestroy();
     public Transform getTransform() {
         return transform;
     }

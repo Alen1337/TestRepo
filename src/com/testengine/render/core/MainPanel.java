@@ -1,13 +1,7 @@
 package com.testengine.render.core;
 
-import com.testengine.game.core.GameEventHandler;
-import com.testengine.game.core.RenderEventHandler;
-import com.testengine.game.scene.Scene;
-import com.testengine.game.scene.SceneType;
 import com.testengine.render.aview.agui.AGFps;
-import com.testengine.render.aview.amenu.AMMainMenu;
-import com.testengine.render.aview.aobject.AORenderer;
-import com.testengine.utils.Debug;
+import com.testengine.render.aview.aobject.AOHandler;
 import com.testengine.utils.InputKey;
 
 import javax.swing.*;
@@ -16,10 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import static com.testengine.utils.Debug.SUCCESS_SCENE_CONNECTION_TO_RENDERER;
-
 public class MainPanel extends JPanel {
-    private Scene renderScene;
 
     public MainPanel(int width, int height) {
         super();
@@ -28,23 +19,23 @@ public class MainPanel extends JPanel {
         initKeyActions();
         addMouseListener(new MouseEvents());
 
-        AORenderer.setRenderPanel(this);
+        AOHandler.setRenderPanel(this);
     }
 
     public class MouseEvents implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) {
-            RenderEventHandler.handleMouseClick(e);
+            ViewSceneHandler.handleMouseClick(e);
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
-            RenderEventHandler.handleMousePress(e);
+            ViewSceneHandler.handleMousePress(e);
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            RenderEventHandler.handleMouseRelease(e);
+            ViewSceneHandler.handleMouseRelease(e);
         }
 
         @Override
@@ -72,7 +63,7 @@ public class MainPanel extends JPanel {
         this.getActionMap().put("pressed right", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                GameEventHandler.keyPressed(InputKey.D);
+                ViewSceneHandler.getRenderScene().onKeyPress(InputKey.D);
             }
         });
         this.getInputMap().put(KeyStroke.getKeyStroke("S"), "pressed down");
@@ -101,7 +92,7 @@ public class MainPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 //MainHandler.getInputHandler().onKeyPress(InputKey.SPACE);
-                GameEventHandler.keyPressed(InputKey.SPACE);
+                ViewSceneHandler.getRenderScene().onKeyPress(InputKey.SPACE);
             }
         });
     }
@@ -114,19 +105,9 @@ public class MainPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics grphcs) {
         super.paintComponent(grphcs);
-        AORenderer.renderView(grphcs);
+        AOHandler.render(grphcs);
         AGFps.render(grphcs);
     }
 
-    public void setRenderScene(Scene scene) {
-        renderScene = scene;
-        if(scene.getSceneType() == SceneType.MAINMENU) {
-            ViewSceneHandler.clear();
-            ViewSceneHandler.MainMenuSceneView = new AMMainMenu(0,0,this.getWidth(),this.getHeight());
-        } else if(scene.getSceneType() == SceneType.GAME) {
-            ViewSceneHandler.clear();
-        }
-        Debug.Log("[" + scene.getSceneType() + SUCCESS_SCENE_CONNECTION_TO_RENDERER);
-    }
 
 }

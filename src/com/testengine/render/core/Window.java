@@ -40,9 +40,6 @@ public class Window {
         mainPanel.update();
     }
 
-    public void setRenderScene(Scene scene) {
-        mainPanel.setRenderScene(scene);
-    }
 
     public int getWidth() {
         return frame.getWidth();

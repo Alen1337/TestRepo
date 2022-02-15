@@ -8,7 +8,7 @@ import com.testengine.render.aview.abutton.MainMenu.ABSettings;
 
 import java.awt.event.MouseEvent;
 
-import static com.testengine.render.core.ViewSceneHandler.MainMenuSceneView;
+
 
 public class AMMainMenu extends AMenu {
     private ABNewGame newGameButton;
@@ -24,18 +24,18 @@ public class AMMainMenu extends AMenu {
         exitButton = new ABExit(x,330,width,100);
     }
 
-    public static void handleClick(MouseEvent e) {
-        if(MainMenuSceneView.getExitButton().isClicked(e.getX(),e.getY())) {
-            MainMenuSceneView.getExitButton().onClick();
+    public void handleClick(MouseEvent e) {
+        if(exitButton.isClicked(e.getX(),e.getY())) {
+            exitButton.onClick();
         }
-        else if(MainMenuSceneView.getNewGameButton().isClicked(e.getX(),e.getY())) {
-            MainMenuSceneView.getNewGameButton().onClick();
+        else if(newGameButton.isClicked(e.getX(),e.getY())) {
+            newGameButton.onClick();
         }
-        else if(MainMenuSceneView.getLoadGameButton().isClicked(e.getX(),e.getY())) {
-            MainMenuSceneView.getLoadGameButton().onClick();
+        else if(loadGameButton.isClicked(e.getX(),e.getY())) {
+            loadGameButton.onClick();
         }
-        else if(MainMenuSceneView.getSettingsButton().isClicked(e.getX(),e.getY())) {
-            MainMenuSceneView.getSettingsButton().onClick();
+        else if(settingsButton.isClicked(e.getX(),e.getY())) {
+            settingsButton.onClick();
         } else {
             GameEventHandler.mouseClicked(e);
         }

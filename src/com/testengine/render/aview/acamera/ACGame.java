@@ -1,20 +1,17 @@
-package com.testengine.render.aview;
+package com.testengine.render.aview.acamera;
 
 import com.testengine.game.object.utils.Position;
 import com.testengine.game.object.utils.Transform;
-import com.testengine.render.aview.aobject.AORenderer;
-import com.testengine.utils.Debug;
+import com.testengine.render.aview.aobject.AOHandler;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 
-public class ACamera {
-    private Transform transform;
-    private float scale = 1;
+public class ACGame extends ACamera {
     private Boolean isMoving;
     private Position lastPostion;
-    public ACamera(Transform transform) {
-        this.transform = transform;
+    public ACGame(Transform transform) {
+        super(transform);
         isMoving = false;
         lastPostion = new Position(0,0,transform.getPosition().getWidth(),transform.getPosition().getHeight());
     }
@@ -27,18 +24,25 @@ public class ACamera {
         return scale;
     }
 
-    public static void handleButtonPress(MouseEvent e) {
+    @Override
+    public void handleButtonPress(MouseEvent e) {
         if(SwingUtilities.isRightMouseButton(e)) {
-            AORenderer.camera.lastPostion.setX(AORenderer.camera.transform.getPosition().getX());
-            AORenderer.camera.lastPostion.setY(AORenderer.camera.transform.getPosition().getY());
-            AORenderer.camera.isMoving = true;
+            lastPostion.setX(transform.getPosition().getX());
+            lastPostion.setY(transform.getPosition().getY());
+            isMoving = true;
         }
     }
 
-    public static void handleButtonRelease(MouseEvent e) {
+    @Override
+    public void handleButtonClick(MouseEvent e) {
+
+    }
+
+    @Override
+    public void handleButtonRelease(MouseEvent e) {
         if(SwingUtilities.isRightMouseButton(e)) {
 
-            AORenderer.camera.isMoving = false;
+            isMoving = false;
         }
     }
 
@@ -49,4 +53,6 @@ public class ACamera {
     public Boolean getMoving() {
         return isMoving;
     }
+
+
 }
