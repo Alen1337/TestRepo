@@ -4,9 +4,10 @@ import com.testengine.game.core.GameEventHandler;
 import com.testengine.game.core.SpriteHandler;
 import com.testengine.game.object.core.GameObject;
 import com.testengine.game.object.core.ObjectType;
-import com.testengine.game.object.shot.Shot;
-import com.testengine.game.object.tower.core.Tower;
-import com.testengine.game.object.unit.Unit;
+import com.testengine.game.object.game.core.BuildTile;
+import com.testengine.game.object.game.shot.Shot;
+import com.testengine.game.object.game.building.tower.core.Tower;
+import com.testengine.game.object.game.unit.Unit;
 import com.testengine.game.object.utils.Transform;
 import com.testengine.game.scene.GameScene;
 import com.testengine.game.scene.MainMenuScene;
@@ -66,6 +67,7 @@ public class AOHandler {
         if(object.getObjectType() == ObjectType.UNIT) AOUnit.render(g,(Unit)object, camera);
         else if(object.getObjectType() == ObjectType.TOWER) AOTower.render(g,(Tower)object, camera);
         else if(object.getObjectType() == ObjectType.SHOT) AOShot.render(g,(Shot)object, camera);
+        else if(object.getObjectType() == ObjectType.BUILD_TILE) AOBuildTile.render(g,(BuildTile)object, camera);
         return;
     }
 

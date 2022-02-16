@@ -21,6 +21,11 @@ public class Player extends GameObject {
     }
 
     @Override
+    public void update(float dt) {
+
+    }
+
+    @Override
     public void onDestroy() {
 
     }

@@ -1,12 +1,10 @@
 package com.testengine.game.core;
 
-import com.testengine.game.object.shot.Shot;
-import com.testengine.game.scene.MainMenuScene;
+import com.testengine.game.object.game.shot.Shot;
 import com.testengine.game.scene.Scene;
 import com.testengine.game.scene.SceneHandler;
 import com.testengine.game.scene.SceneType;
 import com.testengine.utils.Debug;
-import com.testengine.utils.InputKey;
 
 import java.awt.event.MouseEvent;
 

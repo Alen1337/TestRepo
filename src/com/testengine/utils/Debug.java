@@ -30,15 +30,19 @@ public class Debug {
     public static String ERROR_WINDOW_CREATION = "[ERROR][WINDOW] Some error ocoured while loading the window!";
     public static String ERROR_CALC_SHOT_VELOCITY = "[ERROR] Some error ocoured while calculating the shot's velocity!";
 
+    //else
+    public static String BUILD_MODE_ON = "[GAMEMODE] Building mode on!";
+    public static String BUILD_MODE_OFF = "[GAMEMODE] Building mode off!";
+
 
 
     //Settings
     public static Boolean BasicMode = true;
     public static Boolean InputMode = true;
-    public static Boolean CombatMode = true;
+    public static Boolean CombatMode = false;
     public static Boolean GameObjectMode = true;
-    public static Boolean GameObjectRemoveMode = true;
-    public static Boolean GameObjectCreateMode = true;
+    public static Boolean GameObjectRemoveMode = false;
+    public static Boolean GameObjectCreateMode = false;
 
     static SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss.SSS");
 

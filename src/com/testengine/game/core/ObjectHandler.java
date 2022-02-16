@@ -3,12 +3,13 @@ package com.testengine.game.core;
 import com.testengine.game.object.core.GameObject;
 import com.testengine.game.object.core.ObjectType;
 import com.testengine.game.object.core.PlayerBasement;
-import com.testengine.game.object.shot.Shot;
-import com.testengine.game.object.tower.core.AttackTower;
-import com.testengine.game.object.tower.core.Tower;
-import com.testengine.game.object.tower.core.TowerType;
-import com.testengine.game.object.tower.species.SingleShotTower;
-import com.testengine.game.object.unit.Unit;
+import com.testengine.game.object.game.core.BuildTile;
+import com.testengine.game.object.game.shot.Shot;
+import com.testengine.game.object.game.building.tower.core.AttackTower;
+import com.testengine.game.object.game.building.tower.core.Tower;
+import com.testengine.game.object.game.building.tower.core.TowerType;
+import com.testengine.game.object.game.building.tower.species.SingleShotTower;
+import com.testengine.game.object.game.unit.Unit;
 import com.testengine.utils.Debug;
 
 import java.util.ArrayList;
@@ -28,7 +29,15 @@ public class ObjectHandler {
             else if(gameObjects.get(i).getObjectType() == ObjectType.PLAYER_BASE) {
                 playerBaseUpdate((PlayerBasement)gameObjects.get(i), gameObjects);
             }
+            else if(gameObjects.get(i).getObjectType() == ObjectType.BUILD_TILE) {
+                buildTileUpdate((BuildTile)gameObjects.get(i), gameObjects, dt);
+            }
         }
+    }
+
+    private static void buildTileUpdate(BuildTile buildTile, ArrayList<GameObject> gameObjects, float dt) {
+        buildTile.update(dt);
+
     }
 
     private static void towerUpdate(Tower tower, ArrayList<GameObject> gameObjects) {
@@ -43,7 +52,7 @@ public class ObjectHandler {
     }
 
     private static void unitUpdate(Unit unit, ArrayList<GameObject> gameObjects, float dt) {
-        unit.updateMovement(dt);
+        unit.update(dt);
         for(int i = 0;i<gameObjects.size();i++) {
             if(gameObjects.get(i).getObjectType() == ObjectType.PLAYER_BASE && gameObjects.get(i).getTransform().getDistanceFrom(unit.getTransform()) < 5) {
                 ((PlayerBasement)gameObjects.get(i)).setCurrentHealth(((PlayerBasement)gameObjects.get(i)).getCurrentHealth()-1);
@@ -53,8 +62,7 @@ public class ObjectHandler {
     }
 
     private static void shotUpdate(Shot shot, ArrayList<GameObject> gameObjects, float dt) {
-        shot.updateMovement(dt);
-        shot.calcVelocity();
+        shot.update(dt);
 
         if(shot.getTowerFrom().getTowerType() == TowerType.SINGLE_SHOT) {
             for(int i = 0;i<gameObjects.size();i++) {
@@ -69,6 +77,10 @@ public class ObjectHandler {
                     Debug.LogRemoveObject(shot.getObjectType() + "Successfully removed!");
                     Debug.LogCombat(shot.getTarget().getUnitType() + "_UNIT stats after the shot: " + shot.getTarget().getUnitStat().getHealth() + " " + shot.getTarget().getUnitStat().getArmor() + " " + shot.getTarget().getUnitStat().getShield());
                 }
+            }
+            if(shot.getTarget().getUnitStat().getHealth() < 1) {
+                gameObjects.remove(shot);
+                Debug.LogRemoveObject(shot.getObjectType() + "Successfully removed!");
             }
         }
 

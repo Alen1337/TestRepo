@@ -2,13 +2,12 @@ package com.testengine.render.core;
 
 import com.testengine.render.aview.agui.AGFps;
 import com.testengine.render.aview.aobject.AOHandler;
+import com.testengine.utils.Debug;
 import com.testengine.utils.InputKey;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 public class MainPanel extends JPanel {
 
@@ -18,11 +17,12 @@ public class MainPanel extends JPanel {
 
         initKeyActions();
         addMouseListener(new MouseEvents());
+        addKeyListener(new KeyEvents());
 
         AOHandler.setRenderPanel(this);
     }
 
-    public class MouseEvents implements MouseListener {
+    private class MouseEvents implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) {
             ViewSceneHandler.handleMouseClick(e);
@@ -50,47 +50,98 @@ public class MainPanel extends JPanel {
 
 
     }
+    private class KeyEvents implements KeyListener {
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if(e.getKeyChar() == 'd') {
+                ViewSceneHandler.handleKeyPress(InputKey.d);
+            } else if(e.getKeyChar() == 'a') {
+                ViewSceneHandler.handleKeyPress(InputKey.a);
+            } else if(e.getKeyChar() == 's') {
+                ViewSceneHandler.handleKeyPress(InputKey.s);
+            } else if(e.getKeyChar() == 'w') {
+                ViewSceneHandler.handleKeyPress(InputKey.w);
+            } else if(e.getKeyChar() == '\u001B') {
+                ViewSceneHandler.handleKeyPress(InputKey.ESCAPE);
+            } else if(e.getKeyChar() == ' ') {
+                ViewSceneHandler.handleKeyPress(InputKey.SPACE);
+            } else if(e.getKeyChar() == 'b') {
+                ViewSceneHandler.handleKeyPress(InputKey.b);
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            if(e.getKeyChar() == 'd') {
+                ViewSceneHandler.handleKeyRelease(InputKey.d);
+            } else if(e.getKeyChar() == 'a') {
+                ViewSceneHandler.handleKeyRelease(InputKey.a);
+            } else if(e.getKeyChar() == 's') {
+                ViewSceneHandler.handleKeyRelease(InputKey.s);
+            } else if(e.getKeyChar() == 'w') {
+                ViewSceneHandler.handleKeyRelease(InputKey.w);
+            } else if(e.getKeyChar() == '\u001B') {
+                ViewSceneHandler.handleKeyRelease(InputKey.ESCAPE);
+            } else if(e.getKeyChar() == ' ') {
+                ViewSceneHandler.handleKeyRelease(InputKey.SPACE);
+            } else if(e.getKeyChar() == 'b') {
+                ViewSceneHandler.handleKeyRelease(InputKey.b);
+            }
+        }
+    }
     private void initKeyActions() {
         this.getInputMap().put(KeyStroke.getKeyStroke("A"), "pressed left");
         this.getActionMap().put("pressed left", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                ViewSceneHandler.handleKeyPress(InputKey.A);
+
             }
         });
         this.getInputMap().put(KeyStroke.getKeyStroke("D"), "pressed right");
         this.getActionMap().put("pressed right", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                ViewSceneHandler.handleKeyPress(InputKey.D);
+
             }
         });
         this.getInputMap().put(KeyStroke.getKeyStroke("S"), "pressed down");
         this.getActionMap().put("pressed down", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                ViewSceneHandler.handleKeyPress(InputKey.S);
+
             }
         });
         this.getInputMap().put(KeyStroke.getKeyStroke("W"), "pressed up");
         this.getActionMap().put("pressed up", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                ViewSceneHandler.handleKeyPress(InputKey.W);
+
             }
         });
         this.getInputMap().put(KeyStroke.getKeyStroke("ESCAPE"), "escape");
         this.getActionMap().put("escape", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                ViewSceneHandler.handleKeyPress(InputKey.ESCAPE);
+
             }
         });
         this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "space");
         this.getActionMap().put("space", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                ViewSceneHandler.handleKeyPress(InputKey.SPACE);
+
+            }
+        });
+        this.getInputMap().put(KeyStroke.getKeyStroke("B"), "b");
+        this.getActionMap().put("b", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+
             }
         });
     }

@@ -1,8 +1,8 @@
 package com.testengine.render.aview.aobject;
 
-import com.testengine.game.object.tower.species.SingleShotTower;
-import com.testengine.game.object.tower.core.Tower;
-import com.testengine.game.object.tower.core.TowerType;
+import com.testengine.game.object.game.building.tower.species.SingleShotTower;
+import com.testengine.game.object.game.building.tower.core.Tower;
+import com.testengine.game.object.game.building.tower.core.TowerType;
 import com.testengine.game.object.utils.Transform;
 
 import java.awt.*;

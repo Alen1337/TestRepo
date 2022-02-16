@@ -1,7 +1,7 @@
 package com.testengine.render.aview.aobject;
 
-import com.testengine.game.object.unit.Unit;
-import com.testengine.game.object.unit.UnitType;
+import com.testengine.game.object.game.unit.Unit;
+import com.testengine.game.object.game.unit.UnitType;
 import com.testengine.game.object.utils.Transform;
 
 import java.awt.*;

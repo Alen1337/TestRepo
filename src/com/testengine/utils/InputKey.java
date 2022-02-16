@@ -2,9 +2,10 @@ package com.testengine.utils;
 
 public enum InputKey {
     SPACE,
-    D,
-    A,
-    W,
-    S,
-    ESCAPE
+    ESCAPE,
+    d,
+    a,
+    s,
+    w,
+    b
 }

@@ -1,6 +1,7 @@
 package com.testengine.render.core;
 
 import com.testengine.game.core.RenderEventHandler;
+import com.testengine.game.object.utils.Position;
 import com.testengine.game.scene.SceneType;
 import com.testengine.render.aview.ascene.ASGameScene;
 import com.testengine.render.aview.ascene.ASMainMenuScene;
@@ -37,6 +38,8 @@ public class ViewSceneHandler {
 
     public static void handleKeyPress(InputKey inputKey) { renderScene.onKeyPress(inputKey); }
 
+    public static void handleKeyRelease(InputKey inputKey) { renderScene.onKeyRelease(inputKey); }
+
     public static AScene getRenderScene() {
         return renderScene;
     }
@@ -57,4 +60,8 @@ public class ViewSceneHandler {
     }
 
     public static void unloadScene() { renderScene.onDestroy(); }
+
+    public static Position getMousePositionInGame() {
+        return renderScene.getMousePositionInGame();
+    }
 }

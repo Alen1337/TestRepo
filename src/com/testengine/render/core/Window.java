@@ -54,6 +54,10 @@ public class Window {
 
     }
 
+    public JPanel getMainPanel() {
+        return this.mainPanel;
+    }
+
     public int getY() {
         return frame.getY();
     }

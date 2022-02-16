@@ -38,6 +38,11 @@ public class ASMainMenuScene extends AScene {
         Debug.LogInput(inputKey + " is pressed!");
     }
 
+    @Override
+    public void onKeyRelease(InputKey inputKey) {
+
+    }
+
     public AMMainMenu getMainMenu() {
         return mainMenu;
     }

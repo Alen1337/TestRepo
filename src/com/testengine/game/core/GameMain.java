@@ -44,7 +44,7 @@ public class GameMain {
         fps = dt;
 
         mainScene.update(dt);
-        RenderEventHandler.update();
+        RenderEventHandler.update(dt);
     }
 
     class FPSTimeListener implements ActionListener {

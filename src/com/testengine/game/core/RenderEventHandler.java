@@ -19,10 +19,13 @@ public class RenderEventHandler {
         window = window2;
         Debug.Log(SUCCESS_RENDERHANDLER_CONNECTION);
     }
-    public static void update() {
-        ACHandler.handleCamera();
+    public static void update(float dt) {
+        ViewSceneHandler.getCamera().update(dt);
         window.update();
+
     }
+
+    public static Window getWindow() { return window; }
 
     public static void loadScene(Scene scene) {
         ViewSceneHandler.loadScene(scene.getSceneType());
